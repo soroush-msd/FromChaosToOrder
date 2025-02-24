@@ -51,14 +51,14 @@ for idx, N in enumerate(sample_sizes):
     min_J_hat_idx = np.argmin(J_hat_vals_log)
 
     ax = axes[idx]
-    ax.plot(sigma2_values, L_vals_log, label=f"L(\u03b8)", linestyle='-')
-    ax.plot(sigma2_values, J_vals_log, label=f"J(\u03b8)", linestyle='-')
-    ax.plot(sigma2_values, J_hat_vals_log, label=f"Ĵ(\u03b8)", linestyle='-')
+    ax.plot(sigma2_values, L_vals_log, label=f"L(\u03b8)", linestyle='-', color='blue')
+    ax.plot(sigma2_values, J_vals_log, label=f"J(\u03b8)", linestyle='-', color='green')
+    ax.plot(sigma2_values, J_hat_vals_log, label=f"Ĵ(\u03b8)", linestyle='-', color='red')
 
     # add scatter points for minimal values
     ax.scatter(sigma2_values[min_L_idx], min_L_log, color='blue', zorder=5)
-    ax.scatter(sigma2_values[min_J_idx], min_J_log, color='orange', zorder=5)
-    ax.scatter(sigma2_values[min_J_hat_idx], min_J_hat_log, color='green', zorder=5)
+    ax.scatter(sigma2_values[min_J_idx], min_J_log, color='green', zorder=5)
+    ax.scatter(sigma2_values[min_J_hat_idx], min_J_hat_log, color='red', zorder=5)
 
     ax.set_title(f"Sample Size N={N}")
     ax.set_xlabel("\u03c3²")
