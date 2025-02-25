@@ -8,15 +8,12 @@ def fisher_divergence_loss(sigma_d2, sigma2):
 def j_theta(sigma_d2, sigma2):
     return ((sigma_d2**2) / (2 * sigma2**4)) - (1 / sigma2**2)
 
-def j_hat_theta(samples, sigma2, num_runs=1):
-    estimates = []
-    for _ in range(num_runs):
-        gradient_log_p = -samples / sigma2
-        trace_hessian_log_p = -1 / sigma2
-        term1 = trace_hessian_log_p
-        term2 = 0.5 * np.mean(gradient_log_p**2)
-        estimates.append(term1 + term2)
-    return np.mean(estimates)  # averaging over multiple runs
+def j_hat_theta(samples, sigma2):
+    gradient_log_p = -samples / sigma2
+    trace_hessian_log_p = -1 / sigma2
+    term1 = trace_hessian_log_p
+    term2 = 0.5 * np.mean(gradient_log_p**2)
+    return (term1 + term2)
 
 
 # parameters for the true distribution and samples
