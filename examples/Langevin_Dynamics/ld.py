@@ -182,7 +182,7 @@ plt.title("Langevin Dynamics on 3-Gaussian Mixture")
 plt.tight_layout()
 
 # save the animation as a GIF
-ani.save('langevin_mixture.gif', writer='pillow', fps=1, dpi=100)
+#ani.save('langevin_mixture.gif', writer='pillow', fps=1, dpi=100)
 
 # display (this will show a static plot in most environments)
 plt.show()
